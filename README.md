@@ -1,3 +1,13 @@
+Status: Accepted
+
+Version: 1.0
+
+Owner: Product Team
+
+Last Updated: 2026-07-28
+
+
+
 # SNR
 
 [ SNR Logo ]
