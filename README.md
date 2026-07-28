@@ -1,241 +1,136 @@
-Status: Accepted
-
-Version: 1.0
-
-Owner: Product Team
-
-Last Updated: 2026-07-28
-
-
-
 # SNR
 
-[ SNR Logo ]
+**Status:** Accepted
 
-> **Less noise. More signal.**
+**Version:** 1.0
 
-**SNR (Signal-to-Noise Ratio)** is a Freelance Operating System designed to reduce administrative work, preserve operational knowledge and help independent professionals focus on delivering great work instead of managing information.
+**Document Type:** Repository
 
----
+**Owner:** Product Team
 
-## Why SNR?
-
-Freelancers don't get paid to manage administration.
-
-They get paid to create, build, deliver and solve problems.
-
-Unfortunately, every project also generates an invisible workload:
-
-- remembering previous quotes
-- searching for credentials
-- tracking deadlines
-- waiting for client assets
-- keeping operational knowledge
-- managing recurring projects
-- switching between multiple tools
-
-Most software solves only a small part of this problem.
-
-SNR was created to solve the entire operational workflow.
+**Last Updated:** 2026-07-28
 
 ---
 
-## Mission
+## Purpose
 
-Reduce the administrative and cognitive overhead of freelance work by preserving operational knowledge and surfacing only the information that requires attention.
+This repository contains the source code and documentation for **SNR** (Signal-to-Noise Ratio).
 
----
+SNR is a software platform designed to help independent professionals preserve operational knowledge across client projects.
 
-## Vision
-
-Become the operating system freelancers rely on to organise their work, preserve experience and eliminate unnecessary administrative effort.
+The project follows a **Documentation First** approach, where product strategy, domain knowledge and software architecture are established before implementation.
 
 ---
 
-## Product Philosophy
+## Related Documentation
 
-SNR is built around a simple belief:
-
-> Freelancers should spend their time creating value, not reconstructing information.
-
-Every feature must either:
-
-- reduce administrative work
-- reduce cognitive load
-- preserve operational knowledge
-- surface actionable information
-
-If it does none of these, it does not belong in the product.
+- `MANIFESTO.md`
+- `docs/01-product/README.md`
+- `docs/01-product/vision.md`
+- `docs/01-product/principles.md`
+- `docs/01-product/positioning.md`
 
 ---
 
-## What SNR Is
+## About SNR
 
-SNR is a **Freelance Operating System**.
+Independent professionals complete projects.
 
-It combines operational knowledge, project organisation and reusable resources into a single workspace designed around how freelancers actually work.
+Projects generate experience.
 
-Core concepts include:
+Unfortunately, that experience is often scattered across emails, spreadsheets, cloud storage, messaging applications and personal notes.
 
-- Workspace
-- Clients
-- Projects
-- Deliverables
-- Assets
-- Credentials
-- Operational Knowledge
-- Timelines
+As time passes, valuable operational knowledge becomes increasingly difficult to recover.
 
----
+SNR is designed to preserve that knowledge and make it available when it becomes valuable again.
 
-## What SNR Is Not
+The objective is simple:
 
-SNR is **not**:
-
-- a CRM
-- an ERP
-- accounting software
-- invoicing software
-- another generic Kanban board
-- another note-taking application
-
-Those problems are already solved.
-
-SNR focuses on everything that happens before and after the work itself.
-
----
-
-## Design Principles
-
-The product is guided by a small number of principles.
-
-- Less Noise. More Signal.
-- Project First.
-- Everything Has Context.
-- Memory Over Management.
-- Documentation First.
-- Real Workflows Over Generic Features.
-- Every Piece of Data Must Have Operational Value.
-
-These principles are documented in detail inside the project documentation.
-
----
-
-## Documentation
-
-The project documentation lives inside the `/docs` directory.
-
-It covers:
-
-- Product Vision
-- Product Principles
-- Domain Model
-- Business Rules
-- Product Requirements
-- Software Architecture
-- Engineering Decisions
-- Development Workflow
-
-The documentation is considered part of the product.
-
----
-
-## Current Status
-
-SNR is currently in active development.
-
-Current milestone:
-
-**Product Foundation**
-
-Completed:
-
-- ✅ Product Discovery
-- ✅ Domain Discovery
-- ✅ Documentation Planning
-
-Next milestone:
-
-- Product Documentation
-- UX Design
-- Information Architecture
-- System Architecture
-- MVP Development
-
----
-
-## Technology (Planned)
-
-Backend
-
-- Laravel 12
-- PHP 8.4+
-
-Frontend
-
-- Livewire
-- Alpine.js
-- Tailwind CSS
-
-Database
-
-- PostgreSQL
-
-Infrastructure
-
-- Docker
-- Nginx
-- Redis
-
-Authentication
-
-- Laravel Authentication
-- OAuth (planned)
-
-Testing
-
-- Pest
-- PHPUnit
-
-CI/CD
-
-- GitHub Actions
+> Every completed project should make the next project easier.
 
 ---
 
 ## Repository Structure
 
+The repository is organised around the different disciplines involved in building the product.
+
+```text
+.
+├── README.md
+├── MANIFESTO.md
+├── docs/
+│   ├── 01-product/
+│   ├── 02-domain/
+│   ├── 03-architecture/
+│   ├── 04-engineering/
+│   ├── 05-reference/
+│   └── adr/
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+├── resources/
+├── routes/
+├── storage/
+└── tests/
 ```
-docs/
-    product/
-    domain/
-    design/
-    architecture/
-    engineering/
-    adr/
-    philosophy/
-```
+
+Documentation is intentionally separated from implementation so that business understanding drives technical decisions.
 
 ---
 
-## Contributing
+## Documentation
 
-This repository currently follows a **Documentation First** development process.
+The documentation is organised into five major areas.
 
-Every feature starts with:
+| Section | Purpose |
+|----------|---------|
+| **Product** | Defines the identity, philosophy, vision and positioning of SNR. |
+| **Domain** | Describes the business language, entities, workflows and business rules. |
+| **Architecture** | Documents the system design and technical architecture. |
+| **Engineering** | Defines engineering standards, conventions and development practices. |
+| **Reference** | Contains supporting documentation and supplementary material. |
+| **ADR** | Stores Architectural Decision Records documenting significant technical decisions. |
 
-1. Problem Definition
-2. Business Rules
-3. UX Design
-4. Technical Design
-5. Implementation
-
----
-
-## License
-
-MIT License
+Each section contains its own `README.md`, providing an overview of its purpose and the documents it contains.
 
 ---
 
-> Build less. Think more.
+## Development Status
+
+SNR is under active development.
+
+The project follows a **Documentation First** approach, where product strategy, domain modelling and software architecture are established before implementation.
+
+Project progress, planning and implementation milestones are maintained within the project documentation.
+
+---
+
+## Planned Technology Stack
+
+The initial implementation is planned using:
+
+- Laravel 12
+- PHP 8.4
+- MySQL
+- Docker
+- Tailwind CSS
+- Livewire
+- Alpine.js
+
+The product documentation intentionally remains technology-independent whenever possible.
+
+Technologies may evolve over time without changing the product vision or business domain.
+
+---
+
+## Project Roadmap
+
+The development of SNR is organised into successive documentation and implementation waves.
+
+Detailed planning, milestones and project progress are maintained within the project documentation rather than in this repository entry point.
+
+---
+
+> **Less noise. More signal.**
