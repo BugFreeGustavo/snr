@@ -189,12 +189,6 @@ A sequence of business activities performed to achieve a professional outcome.
 
 ---
 
-## Workspace
-
-The Professional's working environment containing Clients, Projects, Technical Assets, Credentials and accumulated knowledge.
-
----
-
 ## Terminology Principles
 
 Every business term should have one canonical meaning.

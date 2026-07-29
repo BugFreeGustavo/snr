@@ -111,7 +111,7 @@ A Deliverable may reference one or more Dependencies.
 
 ### BR-007
 
-Business relationships must remain explicit and traceable.
+Business relationships must remain explicit and understandable.
 
 ---
 
@@ -155,7 +155,7 @@ Business Events permanently record significant business changes.
 
 ### BR-016
 
-Historical Business Events must remain immutable.
+Historical Business Events must not be altered once they have been recorded.
 
 ---
 
@@ -193,7 +193,7 @@ Credentials may support multiple Projects simultaneously.
 
 ### BR-025
 
-Credentials may provide access to Technical Assets, client environments and external services.
+Credentials may provide access to Technical Assets, Client environments and external services.
 
 ---
 
@@ -293,7 +293,7 @@ Deliverables represent business commitments rather than technical tasks.
 
 ### BR-046
 
-Planning should minimise uncertainty by making dependencies visible.
+Planning should minimise uncertainty by making Dependencies visible.
 
 ---
 
