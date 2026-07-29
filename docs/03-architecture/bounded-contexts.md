@@ -29,12 +29,12 @@ Every architectural component introduced into SNR should belong to one Bounded C
 - `../../README.md`
 - `../../MANIFESTO.md`
 - `README.md`
-- `../domain/domain-concepts.md`
-- `../domain/business-rules.md`
-- `../domain/business-events.md`
-- `../domain/business-workflows.md`
 - `domain-discoveries.md`
 - `context-map.md`
+- `../02-domain/domain-concepts.md`
+- `../02-domain/business-rules.md`
+- `../02-domain/business-events.md`
+- `../02-domain/business-workflows.md`
 
 ---
 
