@@ -41,7 +41,7 @@ The Domain documentation defines the shared understanding of the business before
 
 It answers questions such as:
 
-- What problems does the freelancer solve?
+- What problems does the Professional solve?
 - What activities happen during a project?
 - Which concepts exist in the business?
 - How are those concepts related?
@@ -58,7 +58,7 @@ These answers establish the foundation upon which the software will be designed.
 | **ubiquitous-language.md** | Defines the official vocabulary used throughout the product and documentation. |
 | **business-workflows.md** | Describes real-world workflows performed by independent professionals. |
 | **business-events.md** | Identifies the significant events that occur within the business domain. |
-| **domain-model.md** | Defines the core entities, value objects and their relationships. |
+| **domain-concepts.md** | Defines the core concepts and their relationships. |
 | **business-rules.md** | Documents the business rules and invariants that govern the domain. |
 | **glossary.md** | Provides concise definitions for important domain terminology. |
 
@@ -71,7 +71,7 @@ The documents in this section are intended to be read in the following order:
 1. Ubiquitous Language
 2. Business Workflows
 3. Business Events
-4. Domain Model
+4. Domain Concepts
 5. Business Rules
 6. Glossary
 

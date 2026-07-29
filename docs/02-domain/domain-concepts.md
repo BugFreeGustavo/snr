@@ -41,7 +41,7 @@ Every future capability, architectural decision and implementation should origin
 
 Software should model reality rather than replace it.
 
-Before designing databases, APIs or user interfaces, it is essential to understand the concepts that naturally exist within the freelancer's professional world.
+Before designing databases, APIs or user interfaces, it is essential to understand the concepts that naturally exist within the Professional's world.
 
 A concept exists because it has business meaning, not because the software requires it.
 
@@ -67,7 +67,7 @@ Technical Assets enable execution.
 
 Credentials provide access.
 
-Together, these concepts preserve professional knowledge accumulated throughout a freelancer's career.
+Together, these concepts preserve professional knowledge accumulated throughout a Professional's career.
 
 ---
 
@@ -79,13 +79,76 @@ Every future capability should build upon these concepts rather than introducing
 
 ---
 
+# Professional
+
+## Purpose
+
+A Professional represents the individual whose independent professional activity is managed by SNR.
+
+The Professional is the central business actor within the domain.
+
+Every Client relationship, Project, Technical Asset, Credential and piece of accumulated business knowledge exists within the context of the Professional's career.
+
+---
+
+## Responsibilities
+
+A Professional:
+
+- establishes professional relationships;
+- undertakes Projects;
+- owns Technical Assets;
+- manages Credentials;
+- accumulates professional knowledge over time.
+
+---
+
+## Relationships
+
+A Professional:
+
+- establishes relationships with Clients;
+- organises Projects;
+- owns Technical Assets;
+- owns Credentials;
+- accumulates business knowledge throughout their career.
+
+---
+
+## Lifecycle
+
+A Professional's career evolves continuously.
+
+Projects begin and end.
+
+Clients come and go.
+
+Technical Assets change.
+
+Credentials evolve.
+
+The Professional provides continuity across every business engagement.
+
+---
+
+## Business Knowledge
+
+Examples include:
+
+- accumulated professional experience;
+- reusable business knowledge;
+- preferred ways of working;
+- long-term professional history.
+
+---
+
 # Client
 
 ## Purpose
 
 A Client represents the individual or organisation that requests professional work.
 
-The relationship with a Client often extends beyond a single project and becomes an important source of historical knowledge.
+The relationship with a Client often extends beyond a single Project and becomes an important source of historical knowledge.
 
 ---
 
@@ -105,8 +168,7 @@ A Client:
 
 A Client:
 
-- owns one or more Projects;
-- may define multiple Contacts;
+- is associated with Projects;
 - accumulates commercial history;
 - generates long-term professional knowledge.
 
@@ -118,7 +180,7 @@ A Client relationship evolves continuously.
 
 Projects may begin and end, but the Client relationship usually persists.
 
-Historical information should remain available even when no active projects exist.
+Historical information should remain available even when no active Projects exist.
 
 ---
 
@@ -163,10 +225,10 @@ A Project:
 
 A Project:
 
-- belongs to one Client;
-- contains one or more Deliverables;
-- may contain Milestones;
-- may contain Dependencies;
+- is associated with a Client;
+- organises Deliverables;
+- may include Milestones;
+- may include Dependencies;
 - may require Credentials;
 - may require Technical Assets.
 
@@ -224,7 +286,7 @@ A Deliverable:
 
 A Deliverable:
 
-- belongs to one Project;
+- is organised within a Project;
 - may depend on other Deliverables;
 - may generate Business Events;
 - contributes to Project progress.
@@ -233,7 +295,7 @@ A Deliverable:
 
 ## Lifecycle
 
-Deliverables evolve independently according to the freelancer's workflow.
+Deliverables evolve independently according to the Professional's workflow.
 
 They may be planned, in progress, awaiting review, revised, delivered or archived.
 
@@ -278,7 +340,7 @@ A Dependency:
 
 A Dependency:
 
-- belongs to a Project;
+- is associated with a Project;
 - may affect multiple Deliverables;
 - may originate from Clients or third parties.
 
@@ -286,9 +348,9 @@ A Dependency:
 
 ## Lifecycle
 
-Dependencies appear and disappear throughout a project's lifetime.
+Dependencies appear and disappear throughout a Project's lifetime.
 
-Resolving one dependency may expose another.
+Resolving one Dependency may expose another.
 
 ---
 
@@ -319,7 +381,7 @@ A Milestone:
 
 - marks important achievements;
 - improves planning visibility;
-- communicates project progression.
+- communicates Project progression.
 
 ---
 
@@ -327,7 +389,7 @@ A Milestone:
 
 A Milestone:
 
-- belongs to one Project;
+- is associated with a Project;
 - may reference multiple Deliverables;
 - contributes to Project history.
 
@@ -378,9 +440,9 @@ A Technical Asset:
 
 A Technical Asset:
 
-- belongs to one Professional;
+- is owned by the Professional;
 - may support multiple Projects;
-- may require one or more Credentials;
+- may require Credentials;
 - may be referenced by Projects when required.
 
 ---
@@ -438,7 +500,7 @@ A Credential:
 
 A Credential:
 
-- belongs to one Professional;
+- is owned by the Professional;
 - may support multiple Projects;
 - may provide access to Technical Assets;
 - may be referenced whenever professional work requires authentication.

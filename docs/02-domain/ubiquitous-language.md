@@ -31,7 +31,7 @@ This language is shared by everyone involved in the product, including product o
 - `README.md`
 - `business-workflows.md`
 - `business-events.md`
-- `domain-model.md`
+- `domain-concepts.md`
 - `business-rules.md`
 - `glossary.md`
 
@@ -65,9 +65,17 @@ The business does not adapt to the language of the software.
 
 The following concepts form the foundation of the SNR domain.
 
+### Professional
+
+A Professional is the individual whose professional work, knowledge and reusable resources are managed by SNR.
+
+The Professional owns Clients, Projects, Technical Assets, Credentials and accumulated business knowledge.
+
+---
+
 ### Client
 
-A Client is the organisation or individual that hires the freelancer.
+A Client is the organisation or individual that hires the Professional.
 
 Clients establish professional relationships that often span multiple independent projects over time.
 
@@ -126,7 +134,7 @@ Deliverables represent commitments rather than internal tasks.
 
 ### Dependency
 
-A Dependency represents something outside the freelancer's control that influences the ability to complete work.
+A Dependency represents something outside the Professional's control that influences the ability to complete work.
 
 Dependencies help explain why progress may be delayed.
 
@@ -144,9 +152,9 @@ Dependencies describe operational constraints rather than personal productivity.
 
 ### Milestone
 
-A Milestone represents a significant point in the lifecycle of a Project or Deliverable.
+A Milestone represents a significant point in the lifecycle of a Project.
 
-Milestones measure progress rather than work itself.
+Milestones may reference one or more Deliverables as evidence of progress.
 
 Examples include:
 
@@ -183,7 +191,7 @@ Technical Assets describe operational capability rather than ownership.
 
 A Credential grants authorised access to an external service, platform or resource.
 
-Credentials exist to ensure that the freelancer can access the tools and information required to perform work.
+Credentials exist to ensure that the Professional can access the tools and information required to perform work.
 
 Examples include:
 

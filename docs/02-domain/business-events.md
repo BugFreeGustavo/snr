@@ -14,7 +14,7 @@
 
 ## Purpose
 
-This document defines the significant events that occur throughout a freelancer's professional activities.
+This document defines the significant events that occur throughout a Professional's activities.
 
 Business Events represent facts that have already happened within the domain.
 
@@ -179,7 +179,7 @@ Professional work has temporarily stopped.
 
 Examples include:
 
-- awaiting client feedback;
+- awaiting Client feedback;
 - missing production material;
 - external dependencies;
 - scheduling conflicts.
@@ -464,6 +464,45 @@ Required information or resources have become available.
 
 ---
 
+# Milestone Events
+
+## Milestone Reached
+
+### Description
+
+A significant business objective has been achieved within a Project.
+
+Milestones capture important moments in the progression of professional work rather than work itself.
+
+---
+
+### Why It Happens
+
+Examples include:
+
+- production materials received;
+- production started;
+- internal review completed;
+- Client approval received;
+- final delivery accepted.
+
+---
+
+### Business Impact
+
+- Project progression becomes visible.
+- Historical context is preserved.
+- Future Projects benefit from accumulated knowledge.
+
+---
+
+### Related Concepts
+
+- Milestone
+- Project
+
+---
+
 # Technical Asset Events
 
 ## Technical Asset Acquired
@@ -557,9 +596,9 @@ Examples include expired licences, obsolete hardware or discontinued services.
 
 ### Description
 
-A new professional credential has been established.
+A new professional Credential has been established.
 
-It may provide access to software, cloud services or client environments.
+It may provide access to software, cloud services or Client environments.
 
 ---
 
@@ -642,19 +681,19 @@ Projects end, permissions change or security policies require access removal.
 
 Business Events describe how professional work evolves over time.
 
-Clients establish relationships.
+Client Onboarded begins a professional relationship.
 
-Projects organise engagements.
+Project Planned, Activated, Put On Hold and Archived trace a Project's lifecycle.
 
-Deliverables fulfil commitments.
+Material Received, Deliverable Submitted, Revision Requested, Revision Completed and Deliverable Approved trace how a commitment gets fulfilled.
 
-Dependencies explain uncertainty.
+Dependency Identified and Dependency Resolved explain why progress slows and resumes.
 
-Technical Assets enable execution.
+Milestone Reached marks progress without describing the work itself.
 
-Credentials provide secure access.
+Technical Asset and Credential events keep the Professional ready to work.
 
-Together, these events preserve the professional history of the freelancer.
+Together, these events preserve the professional history of the Professional's career.
 
 ---
 

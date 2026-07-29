@@ -16,9 +16,9 @@
 
 This document describes how independent professionals organise and execute work in real-world environments.
 
-Rather than prescribing processes, these workflows capture recurring business patterns observed across freelance industries.
+Rather than prescribing processes, these workflows capture recurring business patterns observed across professional industries.
 
-The objective is not to define how freelancers should work, but to understand how they actually work.
+The objective is not to define how Professionals should work, but to understand how they actually work.
 
 This understanding forms the foundation of the SNR domain model.
 
@@ -39,7 +39,7 @@ This understanding forms the foundation of the SNR domain model.
 
 ## Why Workflows Matter
 
-Freelance work is rarely linear.
+Professional work is rarely linear.
 
 Projects evolve.
 Requirements change.
@@ -59,7 +59,7 @@ The workflows described in this document represent observed reality rather than 
 
 Every workflow documented here follows the same principles.
 
-- Freelancers own their workflow.
+- Professionals own their workflow.
 - Clients define expected outcomes rather than internal processes.
 - Deliverables represent business commitments.
 - Dependencies introduce uncertainty.
@@ -76,9 +76,9 @@ SNR supports these realities without attempting to replace them.
 
 ### Context
 
-Recurring productions represent long-term professional relationships between a freelancer and a client.
+Recurring productions represent long-term professional relationships between a Professional and a Client.
 
-Although every production cycle is technically a new project, the business relationship, expectations and operational patterns remain largely consistent over time.
+Although every production cycle is technically a new Project, the business relationship, expectations and operational patterns remain largely consistent over time.
 
 Television productions are a common example.
 
@@ -94,9 +94,9 @@ Deliver recurring work within predictable deadlines while preserving operational
 
 ### Example
 
-An audio post-production freelancer is hired to work on **Got Talent 2026**.
+An audio post-production Professional is hired to work on **Got Talent 2026**.
 
-Before work begins, the client and freelancer agree on the commercial and operational expectations.
+Before work begins, the Client and Professional agree on the commercial and operational expectations.
 
 Typical questions include:
 
@@ -128,13 +128,13 @@ Approximately half of the episode is delivered.
 
 Additional edited footage becomes available.
 
-The freelancer continues working while integrating the newly received material.
+The Professional continues working while integrating the newly received material.
 
 **Thursday**
 
 The remaining content and promotional teaser are delivered.
 
-The freelancer completes the full episode.
+The Professional completes the full episode.
 
 **Friday Morning**
 
@@ -142,7 +142,7 @@ The completed audio post-production is delivered internally for review by the pr
 
 **Friday Afternoon**
 
-Final comments, editorial changes and client feedback are received.
+Final comments, editorial changes and Client feedback are received.
 
 Approved changes are incorporated before final delivery.
 
@@ -220,14 +220,14 @@ SNR preserves both perspectives simultaneously.
 
 ## Cross-Workflow Observations
 
-Although every freelancer develops a personal way of working, several patterns consistently emerge across professional engagements.
+Although every Professional develops a personal way of working, several patterns consistently emerge across professional engagements.
 
 - Every workflow begins with a commercial agreement.
-- Deliverables define progress.
-- Dependencies create uncertainty.
+- Deliverables mark visible progress within a workflow.
+- Dependencies force workflows to adapt rather than proceed linearly.
 - Client feedback rarely represents the end of work.
-- Knowledge generated during one project increases confidence in future projects.
-- Long-term client relationships are built through repeated successful deliveries rather than individual projects.
+- Knowledge generated during one Project increases confidence in future projects.
+- Long-term Client relationships are built through repeated successful deliveries rather than individual projects.
 
 These observations represent business truths rather than software requirements.
 
@@ -235,7 +235,7 @@ These observations represent business truths rather than software requirements.
 
 ## Knowledge Preservation Principle
 
-Every completed project should leave behind reusable knowledge.
+Every completed Project should leave behind reusable knowledge.
 
 The knowledge generated during work is itself a valuable business asset.
 
