@@ -31,10 +31,10 @@ Whenever multiple architectural solutions are possible, these principles should 
 - `README.md`
 - `bounded-contexts.md`
 - `domain-discoveries.md`
-- `../domain/domain-concepts.md`
-- `../domain/business-rules.md`
-- `../domain/business-events.md`
-- `../domain/business-workflows.md`
+- `../02-domain/domain-concepts.md`
+- `../02-domain/business-rules.md`
+- `../02-domain/business-events.md`
+- `../02-domain/business-workflows.md`
 
 ---
 

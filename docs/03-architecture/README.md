@@ -14,82 +14,86 @@
 
 ## Purpose
 
-This section documents the strategic architecture of the SNR domain.
+This section documents the strategic architectural decisions that shape SNR.
 
-While the Domain documentation defines the business concepts that exist within the Professional's world, the Architecture documentation explains how those concepts are organised into coherent and maintainable boundaries.
+Unlike the Domain documentation, which describes business reality, the Architecture documentation explains how that reality is organised into independent architectural responsibilities.
 
-Its purpose is not to describe technical implementation, but to preserve the architectural decisions that allow the domain to evolve without unnecessary complexity.
-
-Every architectural decision should remain grounded in the business reality documented throughout the Domain section.
+The goal is not to describe implementation, but to explain the architectural thinking that guides future technical decisions.
 
 ---
 
-## Relationship with the Domain
+## Philosophy
 
-The Domain describes reality.
+The architecture exists to protect the domain.
 
-Architecture organises that reality.
+Business understanding comes first.
 
-Business concepts are discovered before architectural boundaries are introduced.
+Architectural decisions exist to preserve that understanding as the software evolves.
 
-Architecture therefore exists to preserve the integrity of the domain rather than reshape it.
-
-Whenever architectural decisions conflict with business reality, the domain takes precedence.
+Every document in this section explains **why** architectural decisions were made before describing **what** they are.
 
 ---
 
 ## Contents
 
-This section currently contains:
+### Domain Discoveries
 
-- **Domain Discoveries** — the significant discoveries that shaped the understanding of the domain.
-- **Bounded Contexts** — the major business boundaries identified within the domain.
-- **Context Map** — the relationships between those business boundaries.
-- **Strategic Decisions** — architectural principles that guide long-term evolution.
-- **Glossary** — the architectural vocabulary used consistently throughout this section.
+Documents the discoveries that emerged while exploring the business domain and explains how they influenced the architecture.
 
-Additional documents may be introduced as the architecture evolves.
+- `domain-discoveries.md`
 
 ---
 
-## Guiding Principles
+### Architectural Principles
 
-Every architectural decision should follow the same principles.
+Defines the architectural principles that guide design decisions throughout the system.
 
-- Reality Before Implementation.
-- The Domain defines the Architecture.
-- Architecture should reduce complexity rather than introduce it.
-- Business boundaries should emerge through discovery.
-- Architectural decisions should remain understandable without implementation knowledge.
+- `architectural-principles.md`
 
 ---
 
-## Relationship with Other Documentation
+### Bounded Contexts
 
-This section builds directly upon the Domain documentation found in `../02-domain/`.
+Defines the architectural responsibilities that partition the domain into independent areas of responsibility.
 
-It should always be read after understanding the business concepts, workflows, events and rules that define the SNR domain.
-
-Future implementation documentation will build upon both the Domain and Architecture sections.
+- `bounded-contexts.md`
 
 ---
 
-## Evolution
+## Deferred Documentation
 
-Architecture is expected to evolve as the understanding of the domain grows.
+The following documents have been intentionally deferred until the architecture requires them.
 
-New architectural concepts should only be introduced when they solve problems that emerge naturally from the domain.
+### Context Map
 
-Architectural complexity should never be introduced in anticipation of future needs.
+Will document the relationships between Bounded Contexts once inter-context communication becomes sufficiently complex.
+
+- `context-map.md`
+
+---
+
+## Relationship with the Domain
+
+The Domain documentation explains **what exists**.
+
+The Architecture documentation explains **how those responsibilities are organised**.
+
+Implementation decisions should always be traceable back through Architecture to the Domain.
+
+```
+Implementation
+      ↑
+Architecture
+      ↑
+Domain
+```
+
+Every implementation decision should ultimately be justified by the business domain.
 
 ---
 
 ## Guiding Principle
 
-Architecture should protect the domain.
+Reality Before Implementation.
 
-The domain should never be compromised to satisfy the architecture.
-
----
-
-> **Reality Before Implementation.**
+> Good architecture protects good domain understanding.
