@@ -89,6 +89,8 @@ The Professional is the central business actor within the domain.
 
 Every Client relationship, Project, Technical Asset, Credential and piece of accumulated business knowledge exists within the context of the Professional's career.
 
+The domain models exactly one Professional. Every other concept described in this documentation belongs to that Professional and is not shared with other Professionals.
+
 ---
 
 ## Responsibilities

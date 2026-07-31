@@ -62,9 +62,8 @@ The repository is organised around the different disciplines involved in buildin
 │   ├── 01-product/
 │   ├── 02-domain/
 │   ├── 03-architecture/
-│   ├── 04-engineering/
-│   ├── 05-reference/
-│   └── adr/
+│   ├── 04-solution/
+│   └── 05-application/
 ├── app/
 ├── bootstrap/
 ├── config/
@@ -88,10 +87,9 @@ The documentation is organised into five major areas.
 |----------|---------|
 | **Product** | Defines the identity, philosophy, vision and positioning of SNR. |
 | **Domain** | Describes the business language, entities, workflows and business rules. |
-| **Architecture** | Documents the system design and technical architecture. |
-| **Engineering** | Defines engineering standards, conventions and development practices. |
-| **Reference** | Contains supporting documentation and supplementary material. |
-| **ADR** | Stores Architectural Decision Records documenting significant technical decisions. |
+| **Architecture** | Documents the strategic architectural decisions that organise the domain into responsibilities. |
+| **Solution** | Defines the capabilities SNR must provide to deliver value to the Professional. |
+| **Application** | Defines how the Professional experiences those capabilities through interactions. |
 
 Each section contains its own `README.md`, providing an overview of its purpose and the documents it contains.
 

@@ -101,6 +101,22 @@ Every completed project generates knowledge that should remain available for fut
 
 ---
 
+## Scope: Designed for a Single Professional
+
+SNR is designed around a single independent Professional.
+
+Every Client, Project, Deliverable, Technical Asset and Credential described in this documentation belongs to that Professional.
+
+SNR does not model collaboration between multiple Professionals, shared ownership of Clients or Projects, or organisational structures such as teams, studios or agencies.
+
+Professionals who work alongside others maintain their own independent use of SNR.
+
+This boundary keeps the domain simple and focused on preserving one Professional's operational knowledge.
+
+It may be revisited in the future, but only as a deliberate extension of the domain rather than an assumption made during implementation.
+
+---
+
 ## What Makes SNR Different
 
 Traditional productivity software focuses on organising work.
