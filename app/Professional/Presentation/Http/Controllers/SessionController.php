@@ -27,7 +27,7 @@ class SessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard'));
+        return redirect()->intended(route('workspace'));
     }
 
     public function destroy(Request $request): RedirectResponse

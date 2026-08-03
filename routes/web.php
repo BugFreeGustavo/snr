@@ -1,6 +1,8 @@
 <?php
 
+use App\Professional\Presentation\Http\Controllers\ProfileController;
 use App\Professional\Presentation\Http\Controllers\SessionController;
+use App\Professional\Presentation\Http\Controllers\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,7 +17,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 
-    Route::get('/dashboard', function () {
-        return view('professional.dashboard', ['professional' => auth()->user()]);
-    })->name('dashboard');
+    Route::get('/workspace', [WorkspaceController::class, 'show'])->name('workspace');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
