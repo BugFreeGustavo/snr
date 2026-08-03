@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Professional\Domain\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
+use Database\Factories\ProfessionalFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,9 +11,9 @@ use Illuminate\Notifications\Notifiable;
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable
+class Professional extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
+    /** @use HasFactory<ProfessionalFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -25,8 +24,17 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Laravel guesses factory classes by mirroring the model's namespace under
+     * Database\Factories. Domain Models live outside App\Models, so every one
+     * of them must override this to keep `database/factories/` flat.
+     */
+    protected static function newFactory(): ProfessionalFactory
+    {
+        return ProfessionalFactory::new();
     }
 }

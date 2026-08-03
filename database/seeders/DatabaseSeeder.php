@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Professional\Domain\Models\Professional;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,14 +12,15 @@ class DatabaseSeeder extends Seeder
 
     /**
      * Seed the application's database.
+     *
+     * The domain models exactly one Professional (docs/02-domain/domain-concepts.md).
+     * This is that Professional's development record.
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        Professional::factory()->create([
+            'name' => 'Gustavo Marques',
+            'email' => 'gustavo@snr.test',
         ]);
     }
 }
