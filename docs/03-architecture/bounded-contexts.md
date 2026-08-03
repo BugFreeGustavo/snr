@@ -2,13 +2,13 @@
 
 **Status:** Accepted
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Document Type:** Architecture
 
 **Owner:** Product Team
 
-**Last Updated:** 2026-07-29
+**Last Updated:** 2026-08-03
 
 ---
 
@@ -181,6 +181,18 @@ Planning is not a Bounded Context.
 Planning belongs to the Professional's personal workflow.
 
 SNR preserves the information that supports planning without prescribing how planning should be performed.
+
+---
+
+### Professional
+
+The Professional is not a Bounded Context.
+
+The Professional is the central actor referenced by every Bounded Context — Professional Operations and Professional Resources both exist to organise and support the Professional's work — but is owned by neither.
+
+A Bounded Context bounds a business responsibility. The Professional does not bound a responsibility; the Professional is who every responsibility belongs to, consistent with Architectural Principle 02, *The Professional Is the Centre of the Domain*.
+
+This placement should only be reconsidered if the domain reveals responsibilities distinct enough to justify a dedicated Context — for example, if SNR ever needed to model more than one Professional.
 
 ---
 
