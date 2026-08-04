@@ -6,15 +6,13 @@
     <title>SNR — Login</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="relative flex h-full min-h-screen items-center justify-center overflow-hidden bg-deep font-sans text-foreground antialiased">
-    <div class="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[120px]"></div>
+<body class="flex h-full min-h-screen items-center justify-center bg-background font-sans text-text-primary antialiased">
+    <div class="w-full max-w-sm">
+        <p class="mb-8 text-center text-lg font-bold tracking-tight text-text-primary">SNR</p>
 
-    <div class="relative w-full max-w-sm">
-        <p class="mb-8 text-center font-display text-2xl tracking-tight text-foreground">SNR</p>
-
-        <div class="rounded-2xl border border-white/8 bg-elevated p-8">
+        <div class="rounded-xl border border-border bg-surface p-8">
             @if ($errors->any())
-                <ul class="mb-6 rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                <ul class="mb-6 rounded-lg border border-danger/30 bg-danger/10 px-4 py-3 text-sm text-danger">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
@@ -25,24 +23,24 @@
                 @csrf
 
                 <div>
-                    <label for="email" class="block text-sm font-medium text-foreground">Email</label>
+                    <label for="email" class="block text-sm font-medium text-text-primary">Email</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                        class="mt-1 w-full rounded-xl border border-white/8 bg-base px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-ring/40">
+                        class="mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30">
                 </div>
 
                 <div>
-                    <label for="password" class="block text-sm font-medium text-foreground">Password</label>
+                    <label for="password" class="block text-sm font-medium text-text-primary">Password</label>
                     <input id="password" type="password" name="password" required
-                        class="mt-1 w-full rounded-xl border border-white/8 bg-base px-3 py-2 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-2 focus:ring-ring/40">
+                        class="mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-text-primary focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30">
                 </div>
 
-                <label class="flex items-center gap-2 text-sm text-foreground-muted">
-                    <input type="checkbox" name="remember" class="rounded border-white/20 bg-base text-accent focus:ring-ring/40">
+                <label class="flex items-center gap-2 text-sm text-text-secondary">
+                    <input type="checkbox" name="remember" class="rounded border-border text-accent focus:ring-accent/30">
                     Remember me
                 </label>
 
                 <button type="submit"
-                    class="w-full cursor-pointer rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-on-accent shadow-[0_0_24px_-6px_rgba(245,165,36,0.45)] transition hover:opacity-90">
+                    class="w-full cursor-pointer rounded-md bg-accent px-4 py-2 text-sm font-semibold text-text-primary transition hover:bg-accent-hover">
                     Log in
                 </button>
             </form>
