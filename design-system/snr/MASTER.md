@@ -8,192 +8,62 @@
 
 **Project:** SNR
 **Generated:** 2026-08-03 22:39:31
-**Category:** Magazine/Blog
+**Last revised:** 2026-08-03 (Revision 3)
 
 ---
 
 ## Customization Note
 
-**Revision 2 (2026-08-03):** the light "Swiss Modernism" version below read as generic/dated to the user. Replaced with a dark, layered surface system matched from the tool's **"Modern Dark (Cinema Mobile)"** style (`styles.csv` — Linear/Vercel/Raycast-class aesthetic: layered near-blacks, hairline `rgba(255,255,255,0.08)` borders, glassmorphism, no pure `#000000` to avoid OLED smear, `border-radius: 16px`, `Inter`). Structure kept; accent swapped from that style's stock indigo (`#5E6AD2`) to the warm "spotlight gold" (`#F5A524`, tuned from the earlier Theater/Cinema `#CA8A04` match for visibility on near-black) — the deliberate film/TV nod, used for CTAs, active nav state, focus rings, and a soft glow on primary actions. Headings use **Calistoga** for an editorial/premium feel; body/forms stay on **Inter** for legibility. Layout moved from top nav to a persistent left sidebar with inline SVG icons (Heroicons outline), matching current (2025/2026) SaaS dashboard convention.
+**Revision 3 (2026-08-03) — current, authoritative.** Superseded by a real product brief: `uxui-direction.md` (repo root, gitignored — local planning doc, not part of version control). That document is now the source of truth for SNR's visual language; this file translates it into concrete tokens. Explicit rejections in the brief: no dark-mode drama, no gradients without strong reason, no "dashboard-obsessed" or "futuristic" feel, no generic SaaS blue/purple. Palette derived from the brief's own named references — charcoal, warm off-white, stone, muted sage, restrained amber, subtle terracotta. Typography collapsed to a single family (Plus Jakarta Sans) with hierarchy by weight/size, per the brief's "sans-serif with personality, not decorative" instruction — no second display face. Reviewed with the user via an artifact mockup before implementation (brief's own §23 process) and confirmed.
 
-*(Revision 1 — light Swiss Modernism + navy/gold — is left below for history; superseded.)*
+**Revision 2** (dark, near-black, spotlight-gold, Calistoga/Inter, Linear/Vercel-style sidebar) and **Revision 1** (light Swiss Modernism, navy/green) are both superseded — kept out of this file for length; see git history on this file if needed.
 
 ### Color Palette
 
+Named exactly as in `uxui-direction.md` §5.
+
 | Role | Hex | CSS Variable | Utility prefix |
 |------|-----|--------------|-----------------|
-| Deep background (page) | `#020203` | `--color-deep` | `bg-deep` |
-| Base surface (sidebar) | `#0A0A0C` | `--color-base` | `bg-base` |
-| Elevated surface (cards, inputs) | `#131316` | `--color-elevated` | `bg-elevated` |
-| Foreground (text) | `#EDEDEF` | `--color-foreground` | `text-foreground` |
-| Foreground muted | `#8A8F98` | `--color-foreground-muted` | `text-foreground-muted` |
-| Accent/CTA (spotlight gold) | `#F5A524` | `--color-accent` | `bg-accent` / `text-accent` |
-| On Accent | `#1A1006` | `--color-on-accent` | `text-on-accent` |
-| Destructive | `#F87171` | `--color-destructive` | `text-destructive` |
-| Ring (focus) | `#F5A524` | `--color-ring` | `ring-ring` |
+| Background | `#FAF7F2` (warm off-white) | `--color-background` | `bg-background` |
+| Surface | `#FFFFFF` | `--color-surface` | `bg-surface` |
+| Surface elevated | `#F3EEE6` (stone) | `--color-surface-elevated` | `bg-surface-elevated` |
+| Text primary | `#2A2724` (charcoal) | `--color-text-primary` | `text-text-primary` |
+| Text secondary | `#5C554C` | `--color-text-secondary` | `text-text-secondary` |
+| Text muted | `#8C8377` | `--color-text-muted` | `text-text-muted` |
+| Border | `#E4DDD1` | `--color-border` | `border-border` |
+| Accent | `#B8863B` (restrained amber) | `--color-accent` | `bg-accent` / `text-accent` |
+| Accent hover | `#A3752F` | `--color-accent-hover` | `bg-accent-hover` |
+| Success | `#6B8F5C` (muted sage) | `--color-success` | `text-success` / `bg-success` |
+| Warning | `#B7952E` (ochre) | `--color-warning` | `text-warning` / `bg-warning` |
+| Danger | `#B65C45` (subtle terracotta) | `--color-danger` | `text-danger` / `bg-danger` |
+| Info | `#7B8A94` (stone-blue) | `--color-info` | `text-info` / `bg-info` |
 
-Borders use Tailwind's built-in `white/8` opacity utility (`border-white/8`) rather than a dedicated token — no need to name what's already expressible.
+Button/accent text uses `text-text-primary` directly (charcoal on amber has better contrast than white on amber) — no separate `on-accent` token needed.
 
-**Color Notes:** Layered near-black (never pure `#000000`) + spotlight gold accent, used sparingly. See Customization Note above.
+**Naming choice:** token names mirror the brief's own vocabulary verbatim (`text-primary`, `text-secondary`, `text-muted`) even though this produces stuttering utility classes (`text-text-primary`). Traceability back to the brief a developer can grep for was judged more valuable than avoiding the stutter.
 
 ### Typography
 
-- **Heading/Display Font:** Calistoga
-- **Body Font:** Inter
-- **Mood:** editorial, premium, warm (headings) + neutral, functional, legible (body)
-- **Google Fonts:** [Calistoga + Inter](https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@300;400;500;600;700&display=swap)
+- **Font:** Plus Jakarta Sans — single family, all weights (400/500/600/700). No second display face.
+- **Mood:** modern, professional, slightly more character than Inter without becoming decorative.
+- **Hierarchy:** via weight and size only — e.g. `text-2xl font-bold` for page headings, `font-semibold` for section headings, `font-medium` for labels, regular weight for body.
+- **Google Fonts:** [Plus Jakarta Sans](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap)
+- Loaded via `laravel-vite-plugin/fonts` (`bunny()`, see `vite.config.js`), not a `@import` in CSS.
 
-**CSS Import:**
-```css
-@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@300;400;500;600;700&display=swap');
-```
+### Spacing, radii, shadows
 
-### Spacing Variables
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--space-xs` | `4px` / `0.25rem` | Tight gaps |
-| `--space-sm` | `8px` / `0.5rem` | Icon gaps, inline spacing |
-| `--space-md` | `16px` / `1rem` | Standard padding |
-| `--space-lg` | `24px` / `1.5rem` | Section padding |
-| `--space-xl` | `32px` / `2rem` | Large gaps |
-| `--space-2xl` | `48px` / `3rem` | Section margins |
-| `--space-3xl` | `64px` / `4rem` | Hero padding |
-
-### Shadow Depths
-
-| Level | Value | Usage |
-|-------|-------|-------|
-| `--shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Subtle lift |
-| `--shadow-md` | `0 4px 6px rgba(0,0,0,0.1)` | Cards, buttons |
-| `--shadow-lg` | `0 10px 15px rgba(0,0,0,0.1)` | Modals, dropdowns |
-| `--shadow-xl` | `0 20px 25px rgba(0,0,0,0.15)` | Hero images, featured cards |
+Use Tailwind's default scale directly (`p-4`, `p-6`, `rounded-md`, `rounded-lg`, `rounded-xl`) — the brief calls for restraint, not a bespoke scale. No custom `--space-*`/`--shadow-*` tokens; introducing them without a real need contradicted the brief's own §21 ("prefer the simplest technology that satisfies the UX requirements").
 
 ---
 
-## Component Specs
+## Style Guidelines (from `uxui-direction.md`)
 
-### Buttons
-
-```css
-/* Primary Button */
-.btn-primary {
-  background: #CA8A04;
-  color: #0F172A;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 200ms ease;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Secondary Button */
-.btn-secondary {
-  background: transparent;
-  color: #0F172A;
-  border: 2px solid #0F172A;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 200ms ease;
-  cursor: pointer;
-}
-```
-
-### Cards
-
-```css
-.card {
-  background: #F8FAFC;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: var(--shadow-md);
-  transition: all 200ms ease;
-  cursor: pointer;
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-```
-
-### Inputs
-
-```css
-.input {
-  padding: 12px 16px;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 200ms ease;
-}
-
-.input:focus {
-  border-color: #CA8A04;
-  outline: none;
-  box-shadow: 0 0 0 3px #CA8A0433;
-}
-```
-
-### Modals
-
-```css
-.modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.modal {
-  background: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: var(--shadow-xl);
-  max-width: 500px;
-  width: 90%;
-}
-```
-
----
-
-## Style Guidelines
-
-**Style:** Swiss Modernism 2.0
-
-**Keywords:** Grid system, Helvetica, modular, asymmetric, international style, rational, clean, mathematical spacing
-
-**Best For:** Corporate sites, architecture, editorial, SaaS, museums, professional services, documentation
-
-**Key Effects:** display: grid, grid-template-columns: repeat(12 1fr), gap: 1rem, mathematical ratios, clear hierarchy
-
-### Page Pattern
-
-**Pattern Name:** Real-Time / Operations Landing
-
-- **Conversion Strategy:** For ops/security/iot products. Demo or sandbox link. Trust signals.
-- **CTA Placement:** Primary CTA in nav + After metrics
-- **Section Order:** 1. Hero (product + live preview or status), 2. Key metrics/indicators, 3. How it works, 4. CTA (Start trial / Contact)
-
----
-
-## Anti-Patterns (Do NOT Use)
-
-- ❌ Poor typography
-- ❌ Slow loading
-
-### Additional Forbidden Patterns
-
-- ❌ **Emojis as icons** — Use SVG icons (Heroicons, Lucide, Simple Icons)
-- ❌ **Missing cursor:pointer** — All clickable elements must have cursor:pointer
-- ❌ **Layout-shifting hovers** — Avoid scale transforms that shift layout
-- ❌ **Low contrast text** — Maintain 4.5:1 minimum contrast ratio
-- ❌ **Instant state changes** — Always use transitions (150-300ms)
-- ❌ **Invisible focus states** — Focus states must be visible for a11y
+- Calm, intelligent, understated, professional, human, slightly editorial. Not corporate, not gamified, not dashboard-obsessed.
+- Avoid: gradients (unless a very strong reason exists), decorative UI, excessive cards/badges, visual noise.
+- Layout principle: **Context → Relevant knowledge → Decision → Action → Knowledge captured** — not Menu → Form → Submit → Database.
+- Navigation stays visually quiet; the main content area gets the visual attention, not the chrome.
+- Forms show only what the Professional needs now; defer the rest.
+- Errors are human and actionable, never technical (no stack traces, no `SQLSTATE`).
 
 ---
 
@@ -201,13 +71,11 @@ Borders use Tailwind's built-in `white/8` opacity utility (`border-white/8`) rat
 
 Before delivering any UI code, verify:
 
-- [ ] No emojis used as icons (use SVG instead)
-- [ ] All icons from consistent icon set (Heroicons/Lucide)
+- [ ] No emojis used as icons (use inline SVG)
 - [ ] `cursor-pointer` on all clickable elements
-- [ ] Hover states with smooth transitions (150-300ms)
-- [ ] Light mode: text contrast 4.5:1 minimum
+- [ ] Hover states with smooth transitions (150–300ms)
+- [ ] Text contrast 4.5:1 minimum
 - [ ] Focus states visible for keyboard navigation
 - [ ] `prefers-reduced-motion` respected
-- [ ] Responsive: 375px, 768px, 1024px, 1440px
-- [ ] No content hidden behind fixed navbars
-- [ ] No horizontal scroll on mobile
+- [ ] No gradients without a specific, strong reason
+- [ ] Screen communicates context before asking for input
