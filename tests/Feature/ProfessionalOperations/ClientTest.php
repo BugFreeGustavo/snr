@@ -2,6 +2,7 @@
 
 use App\Professional\Domain\Models\Professional;
 use App\ProfessionalOperations\Domain\Models\Client;
+use App\ProfessionalOperations\Domain\Models\Project;
 
 it('redirects guests away from the clients list', function () {
     $response = $this->get('/clients');
@@ -74,4 +75,19 @@ it('shows a client\'s detail page', function () {
     $response->assertOk();
     $response->assertSee('Acme Studios');
     $response->assertSee('Met at a film festival.');
+});
+
+it("lists the client's projects on their detail page", function () {
+    $professional = Professional::factory()->create();
+    $client = Client::factory()->create();
+    $project = Project::factory()->create([
+        'client_id' => $client->id,
+        'name' => 'Season 3 Mix',
+    ]);
+
+    $response = $this->actingAs($professional)->get("/clients/{$client->id}");
+
+    $response->assertOk();
+    $response->assertSee('Season 3 Mix');
+    $response->assertSee('Planned');
 });

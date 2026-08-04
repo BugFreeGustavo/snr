@@ -18,7 +18,26 @@
     </div>
 
     <div class="mt-6 rounded-xl border border-border bg-surface p-6">
-        <h2 class="text-sm font-semibold text-text-primary">Projects</h2>
-        <p class="mt-2 text-sm text-text-muted">Project history for this client will appear here in a future increment.</p>
+        <div class="flex items-center justify-between">
+            <h2 class="text-sm font-semibold text-text-primary">Projects</h2>
+            <a href="{{ route('clients.projects.create', $client) }}" class="text-sm font-medium text-accent hover:text-accent-hover">
+                Plan project
+            </a>
+        </div>
+
+        @if ($client->projects->isEmpty())
+            <p class="mt-2 text-sm text-text-muted">No projects planned yet.</p>
+        @else
+            <ul class="mt-4 divide-y divide-border">
+                @foreach ($client->projects as $project)
+                    <li class="flex items-center justify-between py-3">
+                        <a href="{{ route('clients.projects.show', [$client, $project]) }}" class="font-medium text-text-primary hover:text-accent">
+                            {{ $project->name }}
+                        </a>
+                        <x-project-status-badge :status="$project->status" />
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 @endsection
