@@ -2,13 +2,13 @@
 
 **Status:** Accepted
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Document Type:** Domain
 
 **Owner:** Product Team
 
-**Last Updated:** 2026-07-29
+**Last Updated:** 2026-10-14
 
 ---
 
@@ -299,9 +299,14 @@ A Deliverable:
 
 Deliverables evolve independently according to the Professional's workflow.
 
-They may be planned, in progress, awaiting review, revised, delivered or archived.
+Their lifecycle is defined by the Deliverable Business Events (Discovery 005, `../03-architecture/domain-discoveries.md`):
 
-The exact progression is intentionally flexible.
+- Planned — the commitment has been defined;
+- Awaiting Review — the work has been submitted to the Client;
+- In Revision — the Client has requested changes;
+- Approved — the Client has accepted the work. This state is final.
+
+A Deliverable may move between Awaiting Review and In Revision any number of times before approval.
 
 ---
 

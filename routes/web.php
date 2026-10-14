@@ -4,6 +4,7 @@ use App\Professional\Presentation\Http\Controllers\ProfileController;
 use App\Professional\Presentation\Http\Controllers\SessionController;
 use App\Professional\Presentation\Http\Controllers\WorkspaceController;
 use App\ProfessionalOperations\Presentation\Http\Controllers\ClientController;
+use App\ProfessionalOperations\Presentation\Http\Controllers\DeliverableController;
 use App\ProfessionalOperations\Presentation\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,15 @@ Route::middleware('auth')->group(function () {
             Route::post('/{project}/activate', [ProjectController::class, 'activate'])->name('activate');
             Route::post('/{project}/hold', [ProjectController::class, 'hold'])->name('hold');
             Route::post('/{project}/archive', [ProjectController::class, 'archive'])->name('archive');
+        });
+
+        Route::prefix('{client}/projects/{project}/deliverables')->name('projects.deliverables.')->scopeBindings()->group(function () {
+            Route::get('/create', [DeliverableController::class, 'create'])->name('create');
+            Route::post('/', [DeliverableController::class, 'store'])->name('store');
+            Route::post('/{deliverable}/submit', [DeliverableController::class, 'submit'])->name('submit');
+            Route::post('/{deliverable}/request-revision', [DeliverableController::class, 'requestRevision'])->name('request-revision');
+            Route::post('/{deliverable}/complete-revision', [DeliverableController::class, 'completeRevision'])->name('complete-revision');
+            Route::post('/{deliverable}/approve', [DeliverableController::class, 'approve'])->name('approve');
         });
     });
 });

@@ -31,7 +31,7 @@ class ProjectController extends Controller
     {
         return view('professional-operations.projects.show', [
             'client' => $client,
-            'project' => $project,
+            'project' => $project->load('deliverables'),
         ]);
     }
 
