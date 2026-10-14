@@ -8,3 +8,6 @@ parameters:
         - routes
 
     level: 5
+
+    # Read `casts()` method bodies so enum casts are seen; their PHPDoc only declares array<string, string>.
+    parseModelCastsMethod: true
