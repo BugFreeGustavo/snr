@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
         Route::prefix('{client}/projects/{project}/deliverables')->name('projects.deliverables.')->scopeBindings()->group(function () {
             Route::get('/create', [DeliverableController::class, 'create'])->name('create');
             Route::post('/', [DeliverableController::class, 'store'])->name('store');
+            Route::post('/{deliverable}/submit', [DeliverableController::class, 'submit'])->name('submit');
+            Route::post('/{deliverable}/request-revision', [DeliverableController::class, 'requestRevision'])->name('request-revision');
+            Route::post('/{deliverable}/complete-revision', [DeliverableController::class, 'completeRevision'])->name('complete-revision');
+            Route::post('/{deliverable}/approve', [DeliverableController::class, 'approve'])->name('approve');
         });
     });
 });

@@ -67,6 +67,26 @@
                             <span class="text-sm font-medium text-text-primary">{{ $deliverable->name }}</span>
                             <x-deliverable-status-badge :status="$deliverable->status" />
                         </div>
+
+                        @unless ($project->isArchived())
+                            <div class="flex gap-2">
+                                @php
+                                    $events = match ($deliverable->status) {
+                                        \App\ProfessionalOperations\Domain\Enums\DeliverableStatus::Planned => ['submit' => 'Submit'],
+                                        \App\ProfessionalOperations\Domain\Enums\DeliverableStatus::AwaitingReview => ['request-revision' => 'Request revision', 'approve' => 'Approve'],
+                                        \App\ProfessionalOperations\Domain\Enums\DeliverableStatus::InRevision => ['complete-revision' => 'Complete revision'],
+                                        \App\ProfessionalOperations\Domain\Enums\DeliverableStatus::Approved => [],
+                                    };
+                                @endphp
+
+                                @foreach ($events as $event => $label)
+                                    <form method="POST" action="{{ route("clients.projects.deliverables.{$event}", [$client, $project, $deliverable]) }}">
+                                        @csrf
+                                        <button type="submit" class="cursor-pointer rounded-md border border-border bg-surface px-3 py-1.5 text-xs font-medium text-text-primary transition hover:border-accent hover:text-accent">{{ $label }}</button>
+                                    </form>
+                                @endforeach
+                            </div>
+                        @endunless
                     </li>
                 @endforeach
             </ul>

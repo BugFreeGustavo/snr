@@ -3,6 +3,7 @@
 namespace App\ProfessionalOperations\Domain\Models;
 
 use App\ProfessionalOperations\Domain\Enums\DeliverableStatus;
+use App\ProfessionalOperations\Domain\Exceptions\InvalidDeliverableTransition;
 use Database\Factories\DeliverableFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,25 @@ class Deliverable extends Model
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
+    }
+
+    /**
+     * Applies a documented Business Event's outcome (Discovery 005), refusing it
+     * when the lifecycle forbids the move or the Project is Archived (BR-017).
+     *
+     * @throws InvalidDeliverableTransition
+     */
+    public function transitionTo(DeliverableStatus $next): void
+    {
+        if ($this->project->isArchived()) {
+            throw InvalidDeliverableTransition::projectArchived();
+        }
+
+        if (! $this->status->canBecome($next)) {
+            throw InvalidDeliverableTransition::between($this->status, $next);
+        }
+
+        $this->update(['status' => $next]);
     }
 
     /**

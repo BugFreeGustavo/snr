@@ -86,3 +86,70 @@ it('does not offer deliverable planning on an archived project', function () {
     $response->assertOk();
     $response->assertDontSee('Plan deliverable');
 });
+
+it('moves a deliverable through its business events', function (DeliverableStatus $from, string $event, DeliverableStatus $to) {
+    $professional = Professional::factory()->create();
+    $project = Project::factory()->create();
+    $deliverable = Deliverable::factory()->for($project)->create(['status' => $from]);
+
+    $response = $this->actingAs($professional)
+        ->post("/clients/{$project->client_id}/projects/{$project->id}/deliverables/{$deliverable->id}/{$event}");
+
+    $response->assertRedirect(route('clients.projects.show', [$project->client_id, $project]));
+    expect($deliverable->fresh()->status)->toBe($to);
+})->with([
+    'Deliverable Submitted' => [DeliverableStatus::Planned, 'submit', DeliverableStatus::AwaitingReview],
+    'Revision Requested' => [DeliverableStatus::AwaitingReview, 'request-revision', DeliverableStatus::InRevision],
+    'Revision Completed' => [DeliverableStatus::InRevision, 'complete-revision', DeliverableStatus::AwaitingReview],
+    'Deliverable Approved' => [DeliverableStatus::AwaitingReview, 'approve', DeliverableStatus::Approved],
+]);
+
+it('rejects a move the lifecycle does not allow', function () {
+    $professional = Professional::factory()->create();
+    $project = Project::factory()->create();
+    $deliverable = Deliverable::factory()->for($project)->create(['status' => DeliverableStatus::Planned]);
+    $projectUrl = "/clients/{$project->client_id}/projects/{$project->id}";
+
+    $response = $this->actingAs($professional)->from($projectUrl)->post("{$projectUrl}/deliverables/{$deliverable->id}/approve");
+
+    $response->assertRedirect($projectUrl);
+    $response->assertSessionHasErrors('deliverable');
+    expect($deliverable->fresh()->status)->toBe(DeliverableStatus::Planned);
+});
+
+it('refuses to progress a deliverable of an archived project', function () {
+    $professional = Professional::factory()->create();
+    $project = Project::factory()->create(['status' => ProjectStatus::Archived]);
+    $deliverable = Deliverable::factory()->for($project)->create(['status' => DeliverableStatus::Planned]);
+    $projectUrl = "/clients/{$project->client_id}/projects/{$project->id}";
+
+    $response = $this->actingAs($professional)->from($projectUrl)->post("{$projectUrl}/deliverables/{$deliverable->id}/submit");
+
+    $response->assertSessionHasErrors('deliverable');
+    expect($deliverable->fresh()->status)->toBe(DeliverableStatus::Planned);
+});
+
+it("does not reach a deliverable through another project's address", function () {
+    $professional = Professional::factory()->create();
+    $project = Project::factory()->create();
+    $otherDeliverable = Deliverable::factory()->create();
+
+    $response = $this->actingAs($professional)
+        ->post("/clients/{$project->client_id}/projects/{$project->id}/deliverables/{$otherDeliverable->id}/submit");
+
+    $response->assertNotFound();
+    expect($otherDeliverable->fresh()->status)->toBe(DeliverableStatus::Planned);
+});
+
+it('offers only the business events the current status allows', function () {
+    $professional = Professional::factory()->create();
+    $project = Project::factory()->create();
+    Deliverable::factory()->for($project)->create(['status' => DeliverableStatus::AwaitingReview]);
+
+    $response = $this->actingAs($professional)->get("/clients/{$project->client_id}/projects/{$project->id}");
+
+    $response->assertSee('Request revision');
+    $response->assertSee('Approve');
+    $response->assertDontSee('Complete revision');
+    $response->assertDontSee('>Submit<', false);
+});
