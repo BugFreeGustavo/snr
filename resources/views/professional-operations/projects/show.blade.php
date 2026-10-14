@@ -12,7 +12,7 @@
         <x-project-status-badge :status="$project->status" />
     </div>
 
-    @unless ($project->status === \App\ProfessionalOperations\Domain\Enums\ProjectStatus::Archived)
+    @unless ($project->isArchived())
         <div class="mt-6 flex gap-3">
             @if ($project->status->value !== 'active')
                 <form method="POST" action="{{ route('clients.projects.activate', [$client, $project]) }}">
@@ -40,4 +40,36 @@
             </form>
         </div>
     @endunless
+
+    <section class="mt-10">
+        <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-text-primary">Deliverables</h2>
+
+            @unless ($project->isArchived())
+                <a href="{{ route('clients.projects.deliverables.create', [$client, $project]) }}"
+                    class="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-text-primary transition hover:bg-accent-hover">
+                    Plan deliverable
+                </a>
+            @endunless
+        </div>
+
+        @error('deliverable')
+            <p class="mt-4 rounded-lg border border-danger/30 bg-danger/10 px-4 py-3 text-sm text-danger">{{ $message }}</p>
+        @enderror
+
+        @if ($project->deliverables->isEmpty())
+            <p class="mt-4 text-sm text-text-secondary">No deliverables planned yet.</p>
+        @else
+            <ul class="mt-4 divide-y divide-border rounded-xl border border-border bg-surface">
+                @foreach ($project->deliverables as $deliverable)
+                    <li class="flex items-center justify-between gap-4 px-4 py-3">
+                        <div class="flex items-center gap-3">
+                            <span class="text-sm font-medium text-text-primary">{{ $deliverable->name }}</span>
+                            <x-deliverable-status-badge :status="$deliverable->status" />
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+    </section>
 @endsection
