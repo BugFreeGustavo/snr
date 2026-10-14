@@ -2,13 +2,13 @@
 
 **Status:** Accepted
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Document Type:** Domain
 
 **Owner:** Product Team
 
-**Last Updated:** 2026-07-29
+**Last Updated:** 2026-10-14
 
 ---
 
@@ -156,6 +156,12 @@ Business Events permanently record significant business changes.
 ### BR-016
 
 Historical Business Events must not be altered once they have been recorded.
+
+---
+
+### BR-017
+
+Deliverables of an Archived Project can no longer be planned or progressed.
 
 ---
 

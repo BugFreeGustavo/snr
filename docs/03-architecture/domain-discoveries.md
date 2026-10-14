@@ -2,13 +2,13 @@
 
 **Status:** Accepted
 
-**Version:** 1.0
+**Version:** 1.1
 
 **Document Type:** Architecture
 
 **Owner:** Product Team
 
-**Last Updated:** 2026-07-29
+**Last Updated:** 2026-10-14
 
 ---
 
@@ -255,6 +255,58 @@ The Professional remains the constant element throughout the domain.
 ## Impact
 
 This Discovery reinforced the overall structure of the domain and validated the relationships between its core concepts.
+
+---
+
+# Discovery 005
+
+## Title
+
+A Deliverable's lifecycle is defined by its Business Events.
+
+---
+
+## Observation
+
+Implementing Deliverables required a definitive set of states.
+
+Domain Concepts described them loosely as planned, in progress, awaiting review, revised, delivered or archived.
+
+Business Events described the transitions as Deliverable Planned, Deliverable Submitted, Revision Requested, Revision Completed and Deliverable Approved.
+
+The two descriptions only partially overlapped.
+
+---
+
+## Evidence
+
+- "Delivered" and "awaiting review" describe the same moment: the work has been submitted and the Client has not yet responded.
+- "Revised" describes the period between Revision Requested and Revision Completed.
+- No Business Event begins "in progress" or produces "archived".
+- Material Received resolves Dependencies; it does not change the Deliverable itself.
+- Deliverable Approved completes the historical record, so nothing follows it.
+
+---
+
+## Discovery
+
+A Deliverable state exists only when a documented Business Event produces it.
+
+- Deliverable Planned → Planned
+- Deliverable Submitted → Awaiting Review
+- Revision Requested → In Revision
+- Revision Completed → Awaiting Review
+- Deliverable Approved → Approved
+
+Approved is final.
+
+---
+
+## Impact
+
+The Deliverable Lifecycle in Domain Concepts now uses these four states.
+
+States such as "in progress" or "archived" may only return through a future Discovery that introduces the Business Event producing them.
 
 ---
 
